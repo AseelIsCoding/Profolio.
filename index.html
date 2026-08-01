@@ -25,7 +25,7 @@
 html.ar{direction:rtl}
 .ar{--font-display:'Tajawal',sans-serif;--font-swash:'Tajawal',sans-serif;--font-head:'Tajawal',sans-serif;--font-body:'Tajawal',sans-serif;--font-mono:'Tajawal',sans-serif}
 .ar .mono{letter-spacing:0;text-transform:none;font-weight:700}
-*{margin:0;padding:0;box-sizing:border-box}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 body{background:var(--paper);color:var(--ink);font-family:var(--font-body);font-weight:400;overflow-x:hidden;cursor:none}
 a{color:inherit;text-decoration:none}
@@ -282,6 +282,22 @@ footer .credit{font-family:var(--font-mono);font-size:.64rem;letter-spacing:.08e
   .head-right{gap:1rem}
   .burger svg{width:32px}
   .menu-link{font-size:11vw}
+  /* comfortable tap targets (44px) */
+  header .logo{padding:.7rem .4rem;margin:-.7rem -.4rem}
+  .burger{padding:.7rem .5rem;margin:-.7rem -.5rem}
+  footer a.fl{padding:.7rem 0;display:inline-block}
+  .menu-foot a{padding:.6rem 0;display:inline-block}
+  .card .desc .more{padding:.6rem 0}
+  /* smooth horizontal swipe, no browser back-gesture hijack */
+  #cardStack{touch-action:pan-x pan-y;overscroll-behavior-x:contain}
+}
+/* iOS Safari: stable viewport units (URL bar collapse) */
+@supports(height:100svh){
+  @media(max-width:900px){
+    #hero{min-height:100svh}
+    #clip .sticky{height:100svh}
+    #clip{height:100svh}
+  }
 }
 @media(min-width:901px){.swipe-dots,.swipe-hint{display:none}}
 @media(max-width:480px){
@@ -438,7 +454,7 @@ const T={
   heroEyebrow:'AI Engineer · Generative &amp; Agentic AI',
   heroFirst:'Aseel', heroSecond:'Almehmadi',
   heroRole:'Building intelligent systems that turn ideas into <b>real, working solutions</b>',
-  heroLede:'I\u2019m an AI engineering student passionate about generative and agentic AI \u2014 from computer vision and NLP to LLMs, RAG and geospatial models \u2014 using AI to create meaningful impact.',
+  heroLede:'I\u2019m an AI engineer passionate about generative and agentic AI \u2014 from computer vision and NLP to LLMs, RAG and geospatial models \u2014 using AI to create meaningful impact.',
   heroBtn1:'View projects', heroBtn2:'Get in touch', heroBadge:'Available for AI roles',
   marquee:'Generative&nbsp;AI&nbsp;<span class="o">\u2014</span>&nbsp;LLMs&nbsp;&amp;&nbsp;RAG&nbsp;<span class="o">\u2014</span>&nbsp;Computer&nbsp;Vision&nbsp;<span class="o">\u2014</span>&nbsp;NLP&nbsp;<span class="o">\u2014</span>&nbsp;Explainable&nbsp;AI&nbsp;<span class="o">\u2014</span>&nbsp;',
   profileLead:'/ 01 \u2014 Profile',
